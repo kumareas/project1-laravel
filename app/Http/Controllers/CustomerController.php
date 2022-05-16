@@ -22,6 +22,9 @@ class CustomerController extends Controller
 
    public function save(Request $request)
    {
-     return $request;
+     $validatedData = $request->validate([
+       'name' => 'required|unique:posts|max:225',
+       'email' => 'required'
+     ]);
    }
 }
